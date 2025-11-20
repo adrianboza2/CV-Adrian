@@ -20,17 +20,23 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">Adrián Boza Suárez</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
+                <span class="d-none d-lg-block">
+                    <div class="d-flex justify-content-center mb-2">
+                        <button id="btn-lang-es" class="btn btn-sm btn-light me-1" aria-label="Español">ES</button>
+                        <button id="btn-lang-en" class="btn btn-sm btn-outline-light" aria-label="English">EN</button>
+                    </div>
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." />
+                </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about" data-i18n="nav.about">Sobre mí</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience" data-i18n="nav.experience">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education" data-i18n="nav.education">Educación</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills" data-i18n="nav.skills">Habilidades</a></li>
+                    <!-- Intereses eliminado del menú -->
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards" data-i18n="nav.awards">Certificaciones</a></li>
                 </ul>
             </div>
         </nav>
@@ -39,15 +45,11 @@
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Adrián
-                        <span class="text-primary">Boza Suárez 
-                        </span>
-                    </h1>
+                    <h1 class="mb-0">Adrián <span class="text-primary">Boza Suárez</span></h1>
                     <div class="subheading mb-5">
                         <canvas class="email-obfuscado" data-mode="canvas" data-key="a1" width="1" height="1" aria-label="email"></canvas>
                     </div>
-                    <p class="lead mb-5">Soy un estudiante de administración de sistemas informáticos en red con gran motivación para adquirir experiencia en el sector. Estoy dispuesto a aprender, trabajar en equipo y aportar mis conocimientos en tecnología para contribuir al crecimiento de la empresa.</p>
+                    <p class="lead mb-5" data-i18n="about.lead">Soy un estudiante de administración de sistemas informáticos en red con gran motivación para adquirir experiencia en el sector. Estoy dispuesto a aprender, trabajar en equipo y aportar mis conocimientos en tecnología para contribuir al crecimiento de la empresa.</p>
                     <div class="social-icons">
                         <a class="social-icon" href="https://www.linkedin.com/in/adri%C3%A1n-boza-su%C3%A1rez-51623a184/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="https://github.com/adrianboza2" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
@@ -58,15 +60,12 @@
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Experiencia</h2>
+                    <h2 class="mb-5" data-i18n="section.experience">Experiencia</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Auxiliar de almacén</h3>
-                            <div class="subheading mb-3">El Corte Inglés</div>
-                            <p>Recepcionaba  y verificaba la mercancía que llegaba a la tienda
-                                Preparación de pedidos mediante uso de PDA.
-                                Colocaba la mercancía en la tienda y almacenaba el excedente de forma ordenada en el almacén
-                                    Control del inventario realizando recuentos y devoluciones</p>
+                                    <h3 class="mb-0" data-i18n="experience.job1.title">Auxiliar de almacén</h3>
+                                    <div class="subheading mb-3">El Corte Inglés</div>
+                                    <p data-i18n="experience.job1.desc">Recepcionaba y verificaba la mercancía que llegaba a la tienda. Preparación de pedidos mediante uso de PDA. Colocaba la mercancía en la tienda y almacenaba el excedente de forma ordenada en el almacén. Control del inventario realizando recuentos y devoluciones.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Julio 2025 - Septiembre 2025</span></div>
                     </div>
@@ -76,18 +75,18 @@
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Educación</h2>
+                    <h2 class="mb-5" data-i18n="section.education">Educación</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">IES Clara del Rey</h3>
-                            <div class="subheading mb-3">Grado superior en administración de sistemas informáticos en red</div>
-                            <div>Computer Science - Web Development Track</div>                       </div>
+                            <div class="subheading mb-3" data-i18n="education.institution1.subheading">Grado superior en administración de sistemas informáticos en red</div>
+                            <div data-i18n="education.track">Computer Science - Web Development Track</div>                       </div>
                         <div class="flex-shrink-0"><span class="text-primary">Septiembre 2024 - Actualidad</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">CSC Capuchinos</h3>
-                            <div class="subheading mb-3">Bachillerato Ciencias</div>
+                            <div class="subheading mb-3" data-i18n="education.institution2.subheading">Bachillerato Ciencias</div>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">Septiembre 2022 - Junio 2024</span></div>
                     </div>
@@ -97,96 +96,55 @@
             <!-- Skills-->
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Skills</h2>
-                    <div class="subheading mb-3">Programming Languages & Tools</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-linux" title="Linux"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-windows" title="Windows Server"></i></li>
-                        <li class="list-inline-item"><i class="fas fa-network-wired" title="Redes"></i></li>
-                        <li class="list-inline-item"><i class="fas fa-server" title="Virtualización"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-docker" title="Docker"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-python" title="Python"></i></li>
-                        <li class="list-inline-item"><i class="fas fa-terminal" title="Scripting"></i></li>
-                        <li class="list-inline-item"><i class="fas fa-database" title="Bases de datos"></i></li>
-                        <li class="list-inline-item"><i class="fas fa-chart-line" title="Monitorización"></i></li>
-                    </ul>
-                    <div class="subheading mb-3">Workflow</div>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <i class="fas fa-server" aria-hidden="true"></i>
-                            <strong> Administración de sistemas:</strong> gestión y mantenimiento de servidores Linux/Windows, despliegue de servicios y administración de usuarios y permisos.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <i class="fas fa-tools" aria-hidden="true"></i>
-                            <strong> Resolución de incidencias:</strong> diagnóstico y resolución de problemas (logs, monitorización, restauración de servicios) aplicando metodologías de troubleshooting.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                            <strong> Seguridad básica:</strong> configuración de firewalls, gestión de cuentas, permisos y buenas prácticas para reducir la superficie de ataque.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <i class="fas fa-users" aria-hidden="true"></i>
-                            <strong> Trabajo en equipo y documentación:</strong> documentación técnica clara, uso de tickets/sistemas de control y colaboración efectiva con el equipo.
-                        </li>
+                    <h2 class="mb-5" data-i18n="section.skills">Habilidades</h2>
+                    <div class="subheading mb-3" data-i18n="skills.title">Lenguajes de programación y herramientas</div>
+                    <ul class="fa-ul mb-4">
+                        <li class="mb-2"><i class="fab fa-python fa-lg me-2" aria-hidden="true"></i><strong>Python</strong>: <span data-i18n="skills.python">scripting y automatización.</span></li>
+                        <li class="mb-2"><i class="fas fa-terminal fa-lg me-2" aria-hidden="true"></i><strong>Bash / Shell</strong>: <span data-i18n="skills.bash">scripts de administración y automatización en Linux.</span></li>
+                        <li class="mb-2"><i class="fab fa-windows fa-lg me-2" aria-hidden="true"></i><strong>Windows Server / PowerShell</strong>: <span data-i18n="skills.powershell">administración de servidores Windows y automatización.</span></li>
+                        <li class="mb-2"><i class="fab fa-linux fa-lg me-2" aria-hidden="true"></i><strong>Linux</strong>: <span data-i18n="skills.linux">administración de sistemas y servicios.</span></li>
+                        <li class="mb-2"><i class="fab fa-docker fa-lg me-2" aria-hidden="true"></i><strong>Docker</strong>: <span data-i18n="skills.docker">contenedores y despliegue de aplicaciones.</span></li>
+                        <li class="mb-2"><i class="fas fa-server fa-lg me-2" aria-hidden="true"></i><strong>Virtualización</strong>: <span data-i18n="skills.virtualization">conceptos y herramientas como VMware/Proxmox.</span></li>
+                        <li class="mb-2"><i class="fas fa-database fa-lg me-2" aria-hidden="true"></i><strong>Bases de datos</strong>: <span data-i18n="skills.databases">SQL (MySQL/PostgreSQL) y consultas básicas.</span></li>
+                        <li class="mb-2"><i class="fab fa-git-alt fa-lg me-2" aria-hidden="true"></i><strong>Git</strong>: <span data-i18n="skills.git">control de versiones y colaboración en proyectos.</span></li>
+                        <li class="mb-2"><i class="fab fa-html5 fa-lg me-2" aria-hidden="true"></i><strong>HTML / CSS / JavaScript</strong>: <span data-i18n="skills.web">fundamentos para administración de servicios web.</span></li>
+                        <li class="mb-2"><i class="fas fa-network-wired fa-lg me-2" aria-hidden="true"></i><strong>Redes</strong>: <span data-i18n="skills.networks">TCP/IP, routing, switching y conceptos de seguridad de red.</span></li>
                     </ul>
                 </div>
             </section>
-            <hr class="m-0" />
-            <!-- Interests-->
-            <section class="resume-section" id="interests">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Interests</h2>
-                    <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-                    <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
-                </div>
-            </section>
-            <hr class="m-0" />
+            
             <!-- Awards-->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Awards & Certifications</h2>
+                    <h2 class="mb-5" data-i18n="section.awards">Certificaciones</h2>
                     <ul class="fa-ul mb-0">
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            Google Analytics Certified Developer
+                            <span data-i18n="awards.item1">Google Analytics Certified Developer</span>
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            Mobile Web Specialist - Google Certification
+                            <span data-i18n="awards.item2">Mobile Web Specialist - Google Certification</span>
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            1
-                            <sup>st</sup>
-                            Place - University of Colorado Boulder - Emerging Tech Competition 2009
+                            <span data-i18n="awards.item3">1st Place - University of Colorado Boulder - Emerging Tech Competition 2009</span>
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            1
-                            <sup>st</sup>
-                            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)
+                            <span data-i18n="awards.item4">1st Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</span>
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2
-                            <sup>nd</sup>
-                            Place - University of Colorado Boulder - Emerging Tech Competition 2008
+                            <span data-i18n="awards.item5">2nd Place - University of Colorado Boulder - Emerging Tech Competition 2008</span>
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            1
-                            <sup>st</sup>
-                            Place - James Buchanan High School - Hackathon 2006
+                            <span data-i18n="awards.item6">1st Place - James Buchanan High School - Hackathon 2006</span>
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            3
-                            <sup>rd</sup>
-                            Place - James Buchanan High School - Hackathon 2005
+                            <span data-i18n="awards.item7">3rd Place - James Buchanan High School - Hackathon 2005</span>
                         </li>
                     </ul>
                 </div>
@@ -196,6 +154,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Ofuscador de email -->
         <script src="js/ofuscador.js" defer></script>
+        <!-- Language switcher -->
+        <script src="js/lang-switch.js" defer></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
