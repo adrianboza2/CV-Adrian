@@ -18,7 +18,7 @@
       'experience.job1.title': 'Auxiliar de almacén',
       'experience.job1.desc': 'Recepcionaba y verificaba la mercancía que llegaba a la tienda. Preparación de pedidos mediante uso de PDA. Colocaba la mercancía en la tienda y almacenaba el excedente de forma ordenada en el almacén. Control del inventario realizando recuentos y devoluciones.',
       'education.institution1.subheading': 'Grado superior en administración de sistemas informáticos en red',
-      'education.track': 'Computer Science - Web Development Track',
+      'education.track': 'Ciencias de la computación - Especialidad en Desarrollo Web',
       'education.institution2.subheading': 'Bachillerato Ciencias',
       'skills.title': 'Lenguajes de programación y herramientas',
       'skills.python': 'scripting y automatización.',
@@ -76,6 +76,15 @@
       'awards.item7': '3rd Place - James Buchanan High School - Hackathon 2005'
     }
   };
+
+  // Additional period/date translations
+  // (these keys are used for date spans in the markup)
+  translations.es['experience.job1.period'] = 'Julio 2025 - Septiembre 2025';
+  translations.es['education.institution1.period'] = 'Septiembre 2024 - Actualidad';
+  translations.es['education.institution2.period'] = 'Septiembre 2022 - Junio 2024';
+  translations.en['experience.job1.period'] = 'July 2025 - September 2025';
+  translations.en['education.institution1.period'] = 'September 2024 - Present';
+  translations.en['education.institution2.period'] = 'September 2022 - June 2024';
 
   function setLang(lang){
     const nodes = document.querySelectorAll('[data-i18n]');
