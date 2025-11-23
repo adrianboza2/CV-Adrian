@@ -14,17 +14,59 @@
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Theme toggle styles -->
+        <style>
+            /* Top-right controls container */
+            #top-controls {
+                position: fixed;
+                top: 12px;
+                right: 12px;
+                z-index: 1080;
+                display: flex;
+                gap: 6px;
+                align-items: center;
+            }
+            #top-controls .btn-lang {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.8rem;
+            }
+            #theme-toggle {
+                border-radius: 0.375rem;
+            }
+            /* Dark theme overrides (basic) */
+            body.dark-theme {
+                background-color: #0f1720 !important;
+                color: #e6eef6 !important;
+            }
+            body.dark-theme .navbar {
+                background-color: #111827 !important;
+            }
+            body.dark-theme .text-primary {
+                color: #9bd3ff !important;
+            }
+            body.dark-theme a {
+                color: #9bd3ff !important;
+            }
+
+            /* Raise profile image slightly on large screens */
+            @media (min-width: 992px) {
+                .navbar-brand .img-profile {
+                    margin-top: -10px;
+                }
+            }
+        </style>
     </head>
     <body id="page-top">
+        <div id="top-controls">
+            <button id="btn-lang-es" class="btn btn-sm btn-lang btn-light" aria-label="Español">ES</button>
+            <button id="btn-lang-en" class="btn btn-sm btn-lang btn-outline-light" aria-label="English">EN</button>
+            <button id="theme-toggle" class="btn btn-sm btn-outline-secondary" aria-pressed="false" title="Cambiar tema" aria-label="Cambiar tema"><i class="fas fa-moon"></i></button>
+        </div>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">Adrián Boza Suárez</span>
                 <span class="d-none d-lg-block">
-                    <div class="d-flex justify-content-center mb-2">
-                        <button id="btn-lang-es" class="btn btn-sm btn-light me-1" aria-label="Español">ES</button>
-                        <button id="btn-lang-en" class="btn btn-sm btn-outline-light" aria-label="English">EN</button>
-                    </div>
                     <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." />
                 </span>
             </a>
@@ -67,7 +109,7 @@
                                     <div class="subheading mb-3">El Corte Inglés</div>
                                     <p data-i18n="experience.job1.desc">Recepcionaba y verificaba la mercancía que llegaba a la tienda. Preparación de pedidos mediante uso de PDA. Colocaba la mercancía en la tienda y almacenaba el excedente de forma ordenada en el almacén. Control del inventario realizando recuentos y devoluciones.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Julio 2025 - Septiembre 2025</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary" data-i18n="experience.job1.period">Julio 2025 - Septiembre 2025</span></div>
                     </div>
                 </div>
             </section>
@@ -81,14 +123,14 @@
                             <h3 class="mb-0">IES Clara del Rey</h3>
                             <div class="subheading mb-3" data-i18n="education.institution1.subheading">Grado superior en administración de sistemas informáticos en red</div>
                             <div data-i18n="education.track">Computer Science - Web Development Track</div>                       </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Septiembre 2024 - Actualidad</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary" data-i18n="education.institution1.period">Septiembre 2024 - Actualidad</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">CSC Capuchinos</h3>
                             <div class="subheading mb-3" data-i18n="education.institution2.subheading">Bachillerato Ciencias</div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Septiembre 2022 - Junio 2024</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary" data-i18n="education.institution2.period">Septiembre 2022 - Junio 2024</span></div>
                     </div>
                 </div>
             </section>
