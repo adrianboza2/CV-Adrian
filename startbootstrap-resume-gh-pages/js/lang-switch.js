@@ -86,6 +86,10 @@
   translations.en['education.institution1.period'] = 'September 2024 - Present';
   translations.en['education.institution2.period'] = 'September 2022 - June 2024';
 
+  // Inline SVG flags (simple stylized versions)
+  const FLAG_ES = '<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bandera España"><rect width="30" height="20" fill="#C60B1E"/><rect y="6" width="30" height="8" fill="#FFC400"/></svg>';
+  const FLAG_GB = '<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flag UK"><rect width="30" height="20" fill="#012169"/><rect x="11" width="8" height="20" fill="#FFFFFF"/><rect x="11" width="8" height="20" fill="#C8102E" style="transform:translateX(1px)"/><rect y="6" width="30" height="8" fill="#FFFFFF"/><rect y="6" width="30" height="8" fill="#C8102E" style="transform:translateY(1px)"/></svg>';
+
   function setLang(lang){
     const nodes = document.querySelectorAll('[data-i18n]');
     nodes.forEach(node => {
@@ -101,17 +105,26 @@
   function updateButtons(lang){
     const es = document.getElementById('btn-lang-es');
     const en = document.getElementById('btn-lang-en');
-    if(!es || !en) return;
-    if(lang === 'es'){
-      es.classList.remove('btn-outline-light');
-      es.classList.add('btn-light');
-      en.classList.remove('btn-light');
-      en.classList.add('btn-outline-light');
-    } else {
-      en.classList.remove('btn-outline-light');
-      en.classList.add('btn-light');
-      es.classList.remove('btn-light');
-      es.classList.add('btn-outline-light');
+    const toggle = document.getElementById('lang-toggle');
+    // If separate ES/EN buttons exist, keep original styling behavior
+    if(es && en){
+      if(lang === 'es'){
+        es.classList.remove('btn-outline-light');
+        es.classList.add('btn-light');
+        en.classList.remove('btn-light');
+        en.classList.add('btn-outline-light');
+      } else {
+        en.classList.remove('btn-outline-light');
+        en.classList.add('btn-light');
+        es.classList.remove('btn-light');
+        es.classList.add('btn-outline-light');
+      }
+    }
+    // If a single toggle button exists, update its flag/icon and aria state
+    if(toggle){
+      const isEs = lang === 'es';
+      toggle.innerHTML = isEs ? FLAG_ES : FLAG_GB;
+      toggle.setAttribute('aria-pressed', String(isEs));
     }
   }
 
@@ -120,8 +133,14 @@
     // attach handlers
     const btnEs = document.getElementById('btn-lang-es');
     const btnEn = document.getElementById('btn-lang-en');
+    const langToggle = document.getElementById('lang-toggle');
     if(btnEs) btnEs.addEventListener('click', () => setLang('es'));
     if(btnEn) btnEn.addEventListener('click', () => setLang('en'));
+    if(langToggle) langToggle.addEventListener('click', () => {
+      const cur = localStorage.getItem('site_lang') || 'es';
+      const next = cur === 'es' ? 'en' : 'es';
+      setLang(next);
+    });
     // initialize
     setLang(stored);
   });
