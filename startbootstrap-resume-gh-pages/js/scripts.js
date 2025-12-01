@@ -59,4 +59,16 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+    // Ensure profile uses 'adrifoto.jpg' if available, fallback to current 'Adri foto.jpg'
+    (function(){
+        const profileImg = document.querySelector('.img-profile');
+        if(!profileImg) return;
+        const trySrc = 'assets/img/adrifoto.jpg';
+        const fallback = profileImg.getAttribute('src');
+        const imgCheck = new Image();
+        imgCheck.onload = function(){ profileImg.setAttribute('src', trySrc); };
+        imgCheck.onerror = function(){ /* fallback stays */ };
+        imgCheck.src = trySrc;
+    })();
+
 });
