@@ -1,0 +1,7 @@
+# robots.txt - Block all indexing while site is in development
+User-agent: *
+Disallow: /
+
+# If you want to allow indexing in production, replace above with:
+# User-agent: *
+# Allow: /
