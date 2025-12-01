@@ -1,2 +1,12 @@
-user-agent: *
-disallow
+# robots.txt for Charles Chaplin
+# Default: allow all crawlers to index the site
+# User-agent: *
+# Allow: /
+
+# Examples:
+# To block everything, uncomment the following two lines:
+User-agent: *
+Disallow: /
+
+# To block only the English page, uncomment the line below:
+# Disallow: /index_en.html
