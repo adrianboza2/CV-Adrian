@@ -1,0 +1,34 @@
+# Netlify _headers providing security headers
+/*
+  Strict-Transport-Security: Enforce HTTPS
+  Content-Security-Policy: Limit external origins to trusted CDNs and allow inline styles/scripts when necessary. Review and harden for production.
+  Referrer-Policy: limit leakage
+  Permissions-Policy: disable powerful features
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 0 (deprecated in modern browsers) - relying on CSP instead
+
+  Update these values for production deployments (adjust CSP to match 3rd-party needs).
+*/
+/* default path: apply to all resources */
+/
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer-when-downgrade
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
+  X-XSS-Protection: 0
+
+  # Minimal Content Security Policy — customize to the assets you actually use.
+  # Note: 'unsafe-inline' and 'unsafe-eval' are present to avoid breaking the demo; remove them by refactoring inline scripts/styles.
+  Content-Security-Policy: default-src 'self';
+    base-uri 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://use.fontawesome.com https://fonts.googleapis.com;
+    connect-src 'self';
+    img-src 'self' data: https://avatars.githubusercontent.com https://raw.githubusercontent.com; 
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    frame-ancestors 'none';
+    form-action 'self';
+    upgrade-insecure-requests;
