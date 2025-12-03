@@ -1952,23 +1952,85 @@ progress {
 .navbar .btn-light { color: var(--bs-dark); background-color: rgba(255,255,255,0.95); }
 .navbar .btn-outline-light { color: rgba(255,255,255,0.95); border-color: rgba(255,255,255,0.6); }
 
+/* TOP CONTROLS BUTTONS - Override navbar styles */
+#top-controls .btn-outline-light {
+  color: rgba(255,255,255,0.98) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  background: rgba(0,0,0,0.15) !important;
+}
+
 /* Accent for headings */
 .resume-section-content h2, .resume-section-content h3 { color: var(--bs-primary); }
 
-/* Top-right control block */
+/* DARK MODE BUTTON - TOP LEFT CORNER */
+
+/* Top-right control block (for language toggle only) */
 #top-controls {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 1060; /* on top of navbar */
+  position: fixed !important;
+  top: 15px !important;
+  right: 15px !important;
+  z-index: 2000 !important;
+  gap: 10px !important;
+  padding: 8px 10px !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  border-radius: 6px !important;
+  backdrop-filter: blur(5px) !important;
+  pointer-events: auto !important;
 }
 
-/* Hide on small screens to avoid overlap with mobile navbar */
-@media (max-width: 420px) {
-  #top-controls { display: none !important; }
+#top-controls .btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: 1rem !important;
+  min-width: 44px !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  pointer-events: auto !important;
+  transition: all 0.2s ease !important;
 }
 
-/* Dark theme support: invert variables when body has .dark-theme */
+#top-controls .btn:hover,
+#top-controls .btn:focus {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+#top-controls .btn i {
+  font-size: 1.1rem !important;
+}
+
+/* Botón de tema en top-controls: icono y transición */
+#themeToggleBtn {
+  margin-right: 8px;
+}
+#themeToggleBtn .fa-moon, #themeToggleBtn .fa-sun {
+  transition: color 0.2s;
+}
+
+/* Dark theme */
+.dark-theme #top-controls {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-theme #top-controls .btn {
+  background: rgba(76, 201, 240, 0.1) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(76, 201, 240, 0.4) !important;
+}
+
+.dark-theme #top-controls .btn:hover,
+.dark-theme #top-controls .btn:focus {
+  background: rgba(76, 201, 240, 0.25) !important;
+  border-color: rgba(76, 201, 240, 0.7) !important;
+  color: #4cc9f0 !important;
+}
+
+/* Dark theme support: invert variables when body OR html has .dark-theme */
 .dark-theme {
   --bs-body-bg: #071227; /* dark navy */
   --bs-body-color: #dbeeff; /* light text */
@@ -1978,30 +2040,17 @@ progress {
   --bs-link-hover-color: #b3f0ff;
 }
 
+html.dark-theme {
+  --bs-body-bg: #071227;
+  --bs-body-color: #dbeeff;
+  --bs-primary: #4cc9f0;
+  --bs-primary-rgb: 76, 201, 240;
+  --bs-link-color: #7ce7ff;
+  --bs-link-hover-color: #b3f0ff;
+}
+
 .dark-theme .navbar.bg-primary { background: linear-gradient(135deg, rgba(11,61,145,0.95) 0%, rgba(7,48,117,1) 100%); }
 .dark-theme .navbar .btn-outline-light { color: #e9f6ff; border-color: rgba(255,255,255,0.15); }
-.dark-theme #top-controls .btn-outline-light { color: #e9f6ff; border-color: rgba(255,255,255,0.15); }
-
-#top-controls .btn {
-  background: transparent;
-  color: rgba(255,255,255,0.95);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-/* Active language button (btn-light) shows white background with primary icon */
-#top-controls .btn-light {
-  background: var(--bs-white) !important;
-  color: var(--bs-primary) !important;
-  border-color: rgba(0,0,0,0.06);
-}
-
-/* Size the emoji in language toggles for clear visibility */
-.lang-emoji {
-  font-size: 1.1rem;
-  line-height: 1;
-}
-
-#top-controls .btn:focus, #top-controls .btn:hover { opacity: 0.95; }
 
 @media (max-width: 575.98px) {
   .table-responsive-sm {
@@ -11003,16 +11052,68 @@ p.lead {
   border-radius: 100%;
   font-size: 1.5rem;
   margin-right: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .social-icons .social-icon:last-child {
   margin-right: 0;
 }
 .social-icons .social-icon:hover {
   background-color: #bd5d38;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.dark-theme .social-icons .social-icon {
+  background-color: rgba(76, 201, 240, 0.2);
+  color: #4cc9f0;
+  border: 1px solid #4cc9f0;
+}
+
+.dark-theme .social-icons .social-icon:hover {
+  background-color: #4cc9f0;
+  color: #071227;
+  border-color: #7ce7ff;
 }
 
 .dev-icons {
   font-size: 3rem;
+}
+
+/* Improved skills section styling */
+#skills .fa-ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+#skills .fa-ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#skills .fa-ul i {
+  width: 1.5em;
+  margin-right: 0.5em;
+  color: var(--bs-primary);
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-theme #skills .fa-ul i {
+  color: #4cc9f0;
+}
+
+#skills strong {
+  color: var(--bs-primary);
+  font-weight: 600;
+}
+
+.dark-theme #skills strong {
+  color: #4cc9f0;
 }
 
 section.resume-section {
