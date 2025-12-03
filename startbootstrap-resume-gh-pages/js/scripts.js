@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', event => {
             target: '#sideNav',
             rootMargin: '0px 0px -40%',
         });
-    };
+    }
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
@@ -31,32 +31,55 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-    // Theme toggle: apply saved theme, toggle class and icon, persist in localStorage
-    const themeToggle = document.getElementById('theme-toggle');
-    const THEME_KEY = 'theme-preference';
-    function applyTheme(theme) {
-        const isDark = theme === 'dark';
-        document.body.classList.toggle('dark-theme', isDark);
-        if (themeToggle) {
-            themeToggle.setAttribute('aria-pressed', String(isDark));
-            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    // ========================================================================
+    // DARK MODE TOGGLE BUTTON - TOP LEFT
+    // ========================================================================
+    // Nuevo botón de cambio de tema (claro/oscuro)
+    // Botón de tema en top-controls
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (themeToggleBtn) {
+        // Al cargar, aplicar el tema guardado
+        const savedTheme = localStorage.getItem('themeMode');
+        if (savedTheme === 'dark') {
+            setDarkTheme();
+        } else {
+            setLightTheme();
         }
-    }
-
-    let storedTheme = null;
-    try { storedTheme = localStorage.getItem(THEME_KEY); } catch (e) { /* ignore */ }
-    if (!storedTheme) {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        storedTheme = prefersDark ? 'dark' : 'light';
-    }
-    applyTheme(storedTheme);
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const newTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
-            applyTheme(newTheme);
-            try { localStorage.setItem(THEME_KEY, newTheme); } catch (e) { /* ignore */ }
+        // Listener para el botón
+        themeToggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isDark = document.body.classList.contains('dark-theme');
+            if (isDark) {
+                setLightTheme();
+            } else {
+                setDarkTheme();
+            }
         });
+    }
+    function setDarkTheme() {
+        document.body.classList.add('dark-theme');
+        document.documentElement.classList.add('dark-theme');
+        localStorage.setItem('themeMode', 'dark');
+        updateThemeToggleIcon();
+    }
+    function setLightTheme() {
+        document.body.classList.remove('dark-theme');
+        document.documentElement.classList.remove('dark-theme');
+        localStorage.setItem('themeMode', 'light');
+        updateThemeToggleIcon();
+    }
+    function updateThemeToggleIcon() {
+        const btn = document.getElementById('themeToggleBtn');
+        if (!btn) return;
+        const icon = btn.querySelector('i');
+        const isDark = document.body.classList.contains('dark-theme');
+        if (isDark) {
+            icon.className = 'fas fa-sun';
+            btn.title = 'Cambiar a tema claro';
+        } else {
+            icon.className = 'fas fa-moon';
+            btn.title = 'Cambiar a tema oscuro';
+        }
     }
 
     // Ensure profile uses 'adrifoto.jpg' if available, fallback to current 'Adri foto.jpg'
