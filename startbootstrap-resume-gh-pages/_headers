@@ -1,0 +1,13 @@
+# Netlify _headers providing security headers
+# NOTE: This file is applied by Netlify. Keep the header block format as shown below.
+# Update these values for production deployments (adjust CSP to match 3rd-party needs).
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(); microphone=(); camera=(); payment=()
+  X-XSS-Protection: 0
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; script-src 'self' https://cdn.jsdelivr.net https://use.fontawesome.com https://fonts.googleapis.com 'unsafe-inline' 'unsafe-eval'; connect-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com https://raw.githubusercontent.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
+

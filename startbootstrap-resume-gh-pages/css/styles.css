@@ -15,7 +15,8 @@
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
-  --bs-red: #dc3545;
+    /* Primary color: deep, saturated navy for strong contrast */
+    --bs-primary: #0b3d91;
   --bs-orange: #bd5d38;
   --bs-yellow: #ffc107;
   --bs-green: #198754;
@@ -34,7 +35,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #bd5d38;
+  --bs-primary: #0b3d91;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -42,7 +43,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 189, 93, 56;
+  --bs-primary-rgb: 11, 61, 145;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
@@ -60,8 +61,9 @@
   --bs-body-font-family: Muli, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
-  --bs-body-line-height: 1.5;
-  --bs-body-color: #212529;
+    /* Body text and background (keep high contrast readable) */
+    --bs-body-color: #0b1f2f; /* near black with blue tint */
+    --bs-body-bg: #ffffff; /* keep white for readability */
   --bs-body-bg: #fff;
   --bs-border-width: 1px;
   --bs-border-style: solid;
@@ -73,8 +75,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #bd5d38;
-  --bs-link-hover-color: #974a2d;
+  --bs-link-color: #0dcaf0;
+  --bs-link-hover-color: #0891b2;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -1937,6 +1939,69 @@ progress {
   display: block;
   margin-top: 6px; /* pequeño espacio hacia abajo */
 }
+
+/* Custom: improved navbar background gradient using primary color */
+.navbar.bg-primary {
+  background: linear-gradient(135deg, rgba(11,61,145,1) 0%, rgba(7,48,117,1) 100%);
+}
+
+/* Make text-primary stand out slightly more */
+.text-primary { color: var(--bs-primary) !important; }
+
+/* Buttons in navbar (language) - contrast & accessible */
+.navbar .btn-light { color: var(--bs-dark); background-color: rgba(255,255,255,0.95); }
+.navbar .btn-outline-light { color: rgba(255,255,255,0.95); border-color: rgba(255,255,255,0.6); }
+
+/* Accent for headings */
+.resume-section-content h2, .resume-section-content h3 { color: var(--bs-primary); }
+
+/* Top-right control block */
+#top-controls {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1060; /* on top of navbar */
+}
+
+/* Hide on small screens to avoid overlap with mobile navbar */
+@media (max-width: 420px) {
+  #top-controls { display: none !important; }
+}
+
+/* Dark theme support: invert variables when body has .dark-theme */
+.dark-theme {
+  --bs-body-bg: #071227; /* dark navy */
+  --bs-body-color: #dbeeff; /* light text */
+  --bs-primary: #4cc9f0; /* a bright cyan for accents */
+  --bs-primary-rgb: 76, 201, 240;
+  --bs-link-color: #7ce7ff;
+  --bs-link-hover-color: #b3f0ff;
+}
+
+.dark-theme .navbar.bg-primary { background: linear-gradient(135deg, rgba(11,61,145,0.95) 0%, rgba(7,48,117,1) 100%); }
+.dark-theme .navbar .btn-outline-light { color: #e9f6ff; border-color: rgba(255,255,255,0.15); }
+.dark-theme #top-controls .btn-outline-light { color: #e9f6ff; border-color: rgba(255,255,255,0.15); }
+
+#top-controls .btn {
+  background: transparent;
+  color: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Active language button (btn-light) shows white background with primary icon */
+#top-controls .btn-light {
+  background: var(--bs-white) !important;
+  color: var(--bs-primary) !important;
+  border-color: rgba(0,0,0,0.06);
+}
+
+/* Size the emoji in language toggles for clear visibility */
+.lang-emoji {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+#top-controls .btn:focus, #top-controls .btn:hover { opacity: 0.95; }
 
 @media (max-width: 575.98px) {
   .table-responsive-sm {
