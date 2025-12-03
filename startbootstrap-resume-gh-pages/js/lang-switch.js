@@ -92,8 +92,15 @@
       // Show the flag of the language that will be selected when clicking (i.e. the "next" language)
       const next = lang === 'es' ? 'en' : 'es';
       const isNextEs = next === 'es';
-      // Use textContent so emoji renders as plain character, not HTML
-      toggle.textContent = isNextEs ? FLAG_ES : FLAG_GB;
+      // Create span for emoji only - preserve existing HTML (the icon)
+      let emojiSpan = toggle.querySelector('.lang-emoji');
+      if(!emojiSpan) {
+        emojiSpan = document.createElement('span');
+        emojiSpan.className = 'lang-emoji';
+        toggle.appendChild(emojiSpan);
+      }
+      emojiSpan.textContent = isNextEs ? FLAG_ES : FLAG_GB;
+      
       // Title indicates the action, localized by current language
       if(lang === 'es') {
         toggle.setAttribute('title', isNextEs ? 'Cambiar a Español' : 'Cambiar a Inglés');
