@@ -1,0 +1,22 @@
+{
+  "name": "cv-adrian",
+  "version": "1.0.0",
+  "description": "CV site",
+  "private": true,
+  "scripts": {
+    "lint": "eslint '**/*.js'",
+    "lint:fix": "eslint '**/*.js' --fix",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.0"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
