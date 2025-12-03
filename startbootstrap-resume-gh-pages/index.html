@@ -7,8 +7,25 @@
         <meta name="author" content="" />
         <title>CV ADRIÁN BOZA </title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous" integrity="sha384-PLACEHOLDER-FONT-AWESOME" ></script>
+        
+        <!-- THEME INITIALIZATION - Apply theme BEFORE page renders -->
+        <script>
+            (function() {
+                try {
+                    const theme = localStorage.getItem('themeMode');
+                    if (theme === 'dark') {
+                        document.documentElement.classList.add('dark-theme');
+                        document.body.classList.add('dark-theme');
+                    } else {
+                        document.documentElement.classList.remove('dark-theme');
+                        document.body.classList.remove('dark-theme');
+                    }
+                } catch (e) {}
+            })();
+        </script>
+        
+        <!-- Font Awesome icons (free version) - load CSS from CDN (no broken SRI) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" crossorigin="anonymous">
         <!-- Google fonts-->
         <!-- Preconnect to Google Fonts for performance -->
         <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -19,6 +36,16 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+                <!-- Controles superiores (tema e idioma) -->
+                <div id="top-controls">
+                    <button id="themeToggleBtn" class="btn btn-outline-light" title="Cambiar tema" aria-label="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="lang-toggle" class="btn btn-outline-light" title="Switch language" aria-label="Switch language">
+                        <span class="lang-emoji">🇪🇸</span>
+                        <i class="fas fa-language"></i>
+                    </button>
+                </div>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -40,24 +67,25 @@
                     <!-- Mobile-only controls: toggles for theme/lang inside collapsed menu -->
                     <li class="nav-item d-lg-none mt-2">
                         <div class="d-flex gap-2 px-3">
-                            <button class="btn btn-sm btn-primary" onclick="document.getElementById('theme-toggle').click()" aria-label="Modo oscuro">Tema</button>
+                            <button class="btn btn-sm btn-primary" onclick="document.getElementById('themeToggleBtn').click()" aria-label="Modo oscuro">Tema</button>
                             <button id="mobile-lang-toggle" class="btn btn-sm btn-primary lang-emoji" onclick="document.getElementById('lang-toggle').click()" aria-label="Idioma">🇪🇸</button>
                         </div>
                     </li>
                 </ul>
             </div>
-            <!-- Top-right controls (theme, language) -->
-                        <div id="top-controls" class="d-flex align-items-center gap-2">
-                                <button id="theme-toggle" class="btn btn-sm btn-outline-light me-2" aria-pressed="false" aria-label="Alternar tema oscuro"><i class="fas fa-moon"></i></button>
-                                <!-- Single language toggle showing the current flag -->
-                                <button id="lang-toggle" class="btn btn-sm btn-outline-light" aria-pressed="false" aria-label="Alternar idioma" title="Idioma">
-                                        <!-- Default: Spanish flag emoji; script updates innerText on load -->
-                                        <span class="lang-emoji">🇪🇸</span>
-                                </button>
+            <!-- Mobile-only controls: toggles for theme/lang inside collapsed menu -->
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-3">
+                            <button class="btn btn-sm btn-primary" onclick="document.getElementById('themeToggleBtn').click()" aria-label="Modo oscuro">Tema</button>
+                            <button id="mobile-lang-toggle" class="btn btn-sm btn-primary lang-emoji" onclick="document.getElementById('lang-toggle').click()" aria-label="Idioma">🇪🇸</button>
                         </div>
+                    </li>
+                </ul>
+            </div>
         </nav>
         <!-- Page Content-->
         <div class="container-fluid p-0">
+            <!-- DARK MODE BUTTON - TOP LEFT -->
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
